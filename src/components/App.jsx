@@ -49,16 +49,14 @@ export class App extends Component {
     }));
   };
 
-  changeFilter = filter => {
-    this.setState({ filter });
+  changeFilter = e => {
+    this.setState({ filter: e.target.value });
   };
 
-  getVisibleContacts = () => {
+  getFilteredContacts = () => {
     const { contacts, filter } = this.state;
-    const normalizedFilter = filter.toLowerCase();
-
     return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
+      contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
 
@@ -70,8 +68,8 @@ export class App extends Component {
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
         <ContactList
-          contacts={this.getVisibleContacts()}
-          onDelete={this.deleteContact}
+          contacts={this.getFilteredContacts()}
+          onDeleteContact={this.deleteContact}
         />
       </div>
     );

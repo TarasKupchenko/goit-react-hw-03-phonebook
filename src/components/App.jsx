@@ -32,7 +32,7 @@ export class App extends Component {
   addContact = contact => {
     if (
       this.state.contacts.some(
-        existingContact => existingContact.name === contact.name
+        existingContact => existingContact.name === contact.name.toLowerCase()
       )
     ) {
       alert(`Contact with name ${contact.name} already exists!`);

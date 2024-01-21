@@ -1,7 +1,7 @@
 import React from 'react';
-import css from './Filter.module.css'
+import css from './Filter.module.css';
 
-const Filter = ({ value, onChange }) => {
+export const Filter = ({ value, onChange }) => {
   return (
     <label className={css.filter}>
       Find contacts by name:
@@ -9,5 +9,3 @@ const Filter = ({ value, onChange }) => {
     </label>
   );
 };
-
-export default Filter;
